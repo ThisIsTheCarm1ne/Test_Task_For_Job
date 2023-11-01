@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+body {
+  background-color: #0c121a;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 10vh;
+}
+h3 {
+  margin: 0;
+  text-transform: capitalize;
+}
+p {
+  font-size: 1.5em;
+}
+.posts_list {
+  margin: 0 auto;
+  padding: 0;
+  width: 40%;
+}
+.post {
+  border: 4px solid;
+  border-image: linear-gradient(
+    90deg,
+    rgba(196,225,127,1) 0%,
+    rgba(247,253,202,1) 12.5%,
+    rgba(250,208,113,1) 25%,
+    rgba(240,118,107,1) 37.5%,
+    rgba(219,157,190,1) 50%,
+    rgba(196,156,223,1) 62.5%,
+    rgba(101,153,226,1) 75%,
+    rgba(97,194,228,1) 87.5%,
+    rgba(196,225,127,1) 100%
+  ) 10;
+  margin-bottom: 4vh;
+  padding: 1em;
+  border-radius: 50px;
+  list-style-type: none;
+}
+.post_info {
+  display: flex; 
+  align-items: baseline;
+  justify-content: flex-start;
+  margin-bottom: 4vh;
+}
+.post_title {
+  padding-left: 1vw;
+  font-size: 2em;
+}
+.read_more_btn {
+  margin-top: 1vh;
+  width: 100%;
+  font-size: 2em;
+  background: none;
+  border: none;
+  color: darkgray;
+  cursor: pointer;
+}

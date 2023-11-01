@@ -1,0 +1,14 @@
+.post_container {
+  margin: 0 auto;
+  width: 40%;
+}
+.btn_back {
+  position: absolute;
+  top: 2%;
+  left: 1%;
+  color: darkgrey;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
