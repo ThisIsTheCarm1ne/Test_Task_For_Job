@@ -1,23 +1,33 @@
-import { useEffect, useState } from 'react'
+import {
+  useEffect,
+  useState
+} from 'react'
+import { PostInterface } from 'src/shared/postInterface';
+
 import type { RootState } from '../../app/store'
 import { useSelector } from 'react-redux'
 
 export default function SinglePost() {
-  const [post, setPost] = useState<any>();
+  const [post, setPost] = useState<PostInterface>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<Error | null>(null);
+
   const postId = useSelector((state: RootState) => state.counter.value)
 
-  useEffect(() => {
-    // Define a function to fetch data from the API
-    async function fetchData() {
-      try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?id=${postId}`);
-        const data = await response.json();
-        setPost(data[0]);
-        console.log(postId, post);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+  // Define a function to fetch data from the API
+  async function fetchData() {
+    try {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts?id=${postId}`);
+      const data = await response.json();
+      setPost(data[0]);
+    } catch (error: any) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
     }
+  }
+
+  useEffect(() => {
     fetchData();
   }, [postId]);
 
@@ -29,6 +39,8 @@ export default function SinglePost() {
           <h3 className='post_title'>{post?.title}</h3>
         </div>
         <p>{post?.body}</p>
+        {isLoading && <p>Loading...</p>}
+        {error && <p>Error: {error.message}</p>}
       </div>
     </div>
   )
